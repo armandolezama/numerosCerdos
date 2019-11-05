@@ -1,0 +1,132 @@
+ES6
+
+Scope
+var YA NO SE USA
+const, let
+BLOCK Scope
+{
+    Todo lo que viva dentro de llaves
+}
+
+const user = {
+    name: 'Alfonso'
+};
+
+user.age = 23;
+
+Tipos datos
+* Map (diccionario de datos/ Hash Table / Indiciar relaciones)
+
+const dictionary = new Map();
+dictionary
+    .has('key') -> Boolean
+    .get('key') -> Value
+    .set('key', 'value') -> dictionary
+
+* key, value > Cualquier tipo de dato   
+
+for(const [key, value] of map) {
+    
+}
+
+* Set
+const set = new Set();
+    set
+        .add('value'); -> set
+        .size -> cardinalidad
+        .delete('value'); -> set
+        .has('value')
+
+const array = [111,2,2,3,4,2,3,1,1,23,3];
+const arrayUniqueValues = [...(new Set(array))];
+Tipos de iteraciones
+* for in
+for(const index in object/array) {
+    index // output
+}
+* for of
+for(const element of array/Map/Set) {
+    index // output
+}
+* map
+    otherArray = array.map( (_iterator, index) => {
+        _iterator = {..._iterator,
+                        otherProperty: ''};
+        return _iterator;
+    } );
+
+    otherArray = array.map( (_iterator, index) => ({
+            ..._iterator,
+            otherProperty: ''}) );
+* filter
+    newArray = array.filter((iterator) => {
+        return [[Return Boolean]]
+    });
+
+    newArray = [1,2,3,4,5,6,7,8,9,0].filter(number => number % 2);
+* sort 
+    // Devuele el arreglo ordenado.
+* includes
+    Boolean = array.includes(element); // String
+* reduce
+    ANY = array.reduce((accumulator, iterator) => {
+        return ACCUMULATOR en la siguiente iteracion.
+    }, Valor inicial);
+
+    [1,2,3,4,5,6].reduce((acccumulator, iterator) => {
+        return accumulator + Math.pow(iterator, 2);
+    }, 0);
+
+    [1,2,3,4,5,6].reduce((acc, i) => acc + i ** 2, 0);
+* some
+    Boolean = array.some((iterator) => {
+        validations
+        return Boolean;
+    });
+* every
+    Boolean = array.every((iterator) => {
+        validations
+        return Boolean;
+    });
+* splice
+    Void = array.splice(index, deleteCounter, ...elements);
+    [1,2,3,4].splice(2, 2, 2, 5); => [1, 2, 2, 5]
+* slice
+    // Investigar
+Destructuracion de datos
+SPREAD OPERATOR
+    * {}, [], Map, Set
+    ej
+    const userObject = {
+        name: 'Alfonso',
+        age: 23, 
+        email: 'malforime@gmail.com'
+    };
+    const userLoggedObject: {
+        ...userObject,
+        token: '1s12d23d2d23rf23rfeg',
+        image: {
+            title: 'my photo',
+            src: 'base64://d32nd2in23if34ifb3if'
+        }
+    };
+    const newObject = {...userObject}; // Es importante crear objetos nuevos, aunque posean los mismos valores.
+
+REST PARAMETER
+
+const myFunction = ({age: <alias>, name}) => {
+    alias
+};
+
+myFunction(user);
+
+const mean = (...numbers) => {
+    const acc = numbers.reduce((sum, number) => {
+        return sum + number;
+    }, 0);
+    return acc / numbers.length;
+};
+
+mean(1,1,1,1,2,2,2,2,3,4,5,6,7)
+
+Importar librerias (import)
